@@ -1,0 +1,89 @@
+# Reading pref.tcl
+# do uart_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying D:/intelFPGA_lite/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+D:/Quartus\ II/Project/Week_end {D:/Quartus II/Project/Week_end/uart_tx.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:07:40 on Sep 29,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Quartus II/Project/Week_end" D:/Quartus II/Project/Week_end/uart_tx.v 
+# -- Compiling module uart_tx
+# -- Compiling module control
+# -- Compiling module datapath
+# 
+# Top level modules:
+# 	uart_tx
+# End time: 20:07:40 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Quartus\ II/Project/Week_end {D:/Quartus II/Project/Week_end/uart_rx.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:07:40 on Sep 29,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Quartus II/Project/Week_end" D:/Quartus II/Project/Week_end/uart_rx.v 
+# -- Compiling module uart_rx
+# -- Compiling module control1
+# -- Compiling module datapath1
+# 
+# Top level modules:
+# 	uart_rx
+# End time: 20:07:40 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Quartus\ II/Project/Week_end {D:/Quartus II/Project/Week_end/uart.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:07:40 on Sep 29,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Quartus II/Project/Week_end" D:/Quartus II/Project/Week_end/uart.v 
+# -- Compiling module uart
+# 
+# Top level modules:
+# 	uart
+# End time: 20:07:40 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+D:/Quartus\ II/Project/Week_end {D:/Quartus II/Project/Week_end/uart_tb.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:07:40 on Sep 29,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Quartus II/Project/Week_end" D:/Quartus II/Project/Week_end/uart_tb.v 
+# -- Compiling module testbench
+# 
+# Top level modules:
+# 	testbench
+# End time: 20:07:40 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  testbench
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" testbench 
+# Start time: 20:07:40 on Sep 29,2023
+# Loading work.testbench
+# Loading work.uart
+# Loading work.uart_rx
+# Loading work.datapath1
+# Loading work.control1
+# Loading work.uart_tx
+# Loading work.datapath
+# Loading work.control
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$random'.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench File: D:/Quartus II/Project/Week_end/uart_tb.v Line: 36
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'rx'.  Expected 7, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/duv/rx File: D:/Quartus II/Project/Week_end/uart.v Line: 13
+# ** Warning: (vsim-3722) D:/Quartus II/Project/Week_end/uart.v(13): [TFMPC] - Missing connection for port 'bit_begin'.
+# ** Warning: (vsim-3722) D:/Quartus II/Project/Week_end/uart.v(13): [TFMPC] - Missing connection for port 'reg_RX'.
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'tx'.  Expected 7, found 6.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/duv/tx File: D:/Quartus II/Project/Week_end/uart.v Line: 21
+# ** Warning: (vsim-3722) D:/Quartus II/Project/Week_end/uart.v(21): [TFMPC] - Missing connection for port 'reg_TX'.
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# Break key hit
+# Break in Module testbench at D:/Quartus II/Project/Week_end/uart_tb.v line 27
+# End time: 20:08:28 on Sep 29,2023, Elapsed time: 0:00:48
+# Errors: 0, Warnings: 6

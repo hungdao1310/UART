@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at uart.v(6): object "RX" differs only in case from object "rx" in the same scope File: D:/Quartus II/Project/Week_end/uart.v Line: 6
+Info (10281): Verilog HDL Declaration information at uart.v(7): object "TX" differs only in case from object "tx" in the same scope File: D:/Quartus II/Project/Week_end/uart.v Line: 7

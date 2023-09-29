@@ -1,0 +1,141 @@
+module uart_tx #(
+    parameter n = 8,
+    parameter f_MHz = 50,
+    parameter baud_rate = 9600
+)(
+    input clk, rst_n, send_req,
+    input [n-1:0] d_in,
+    output TX, send_ack,
+    output [n:0] reg_TX //Thanh ghi lưu lại các bit TX cần truyền đi
+);
+	 localparam T_baud = f_MHz*1000000/baud_rate;
+	 wire inc_i, inc_t, rst_i, rst_t, load_bit, i_eq_10, t_eq_T_baud;
+    
+    datapath #(n, T_baud) 
+             dp(.clk(clk), .rst_n(rst_n), .inc_i(inc_i), .inc_t(inc_t),
+                .rst_i(rst_i), .rst_t(rst_t), .load_bit(load_bit), 
+                .d_in(d_in), .i_eq_10(i_eq_10), .t_eq_T_baud(t_eq_T_baud),
+                .A(reg_TX), .TX(TX)
+                );
+    
+	 control cu(.clk(clk), .rst_n(rst_n), .inc_i(inc_i), .inc_t(inc_t),
+               .rst_i(rst_i), .rst_t(rst_t), .load_bit(load_bit),
+               .i_eq_10(i_eq_10), .t_eq_T_baud(t_eq_T_baud), 
+               .send_ack(send_ack), .send_req(send_req)
+               );
+endmodule
+
+module control (
+    input clk, rst_n, 
+    input i_eq_10, t_eq_T_baud, send_req,
+    output reg inc_i, inc_t, rst_i, rst_t, load_bit, send_ack
+);
+    localparam idle = 1'b0;
+    localparam send_bit = 1'b1;
+    reg state, next_state;
+
+    always @(state, i_eq_10, t_eq_T_baud, send_req)
+    begin
+        inc_i = 0; inc_t = 0; rst_i = 0; rst_t = 0; 
+        load_bit = 0; send_ack = 0; next_state = state; 
+        if (state == idle)
+        begin
+            if (send_req)
+            begin
+                rst_t = 1;
+                rst_i = 1;
+                load_bit = 1;
+                next_state = send_bit;
+            end
+        end
+        else // state = send_bit
+        begin
+            if (~t_eq_T_baud) 
+            begin
+                inc_t = 1;
+            end
+            else if ((t_eq_T_baud) && (~i_eq_10))
+            begin
+                rst_t = 1;
+                inc_i = 1; 
+            end
+            else if ((i_eq_10) && (t_eq_T_baud) && (~send_req))
+            begin
+                next_state = idle;
+                send_ack = 1;
+            end
+				else if ((i_eq_10) && (t_eq_T_baud) && (send_req))
+				begin
+                    rst_t = 1;
+                    rst_i = 1;
+                    load_bit = 1;
+                    send_ack = 1;
+				end
+        end
+    end
+
+    always @(posedge clk or negedge rst_n) 
+    begin
+        if (~rst_n)
+        begin
+            // reset
+            state <= idle;
+        end
+        else
+        begin
+            state <= next_state;
+        end
+    end
+endmodule 
+
+module datapath #(
+    parameter n = 8,
+    parameter T_baud = 5200
+) (
+    input clk, rst_n, 
+    input inc_i, inc_t, rst_i, rst_t, load_bit,
+    input [n-1:0] d_in,
+    output i_eq_10, t_eq_T_baud, 
+    output reg TX,
+    output reg [n:0] A
+);
+    reg [$clog2(n+2)-1:0] cnt_i;
+    reg [$clog2(T_baud)-1:0] cnt_t;
+    
+
+    assign i_eq_10 = (cnt_i == n + 1)?1:0;
+    assign t_eq_T_baud = (cnt_t == T_baud - 1)?1:0;
+
+    always @(posedge clk or negedge rst_n) 
+    begin
+        if (~rst_n)
+        begin
+            A <= 0;
+				TX <= 1'b1;
+        end
+        else
+        begin
+            if (load_bit)
+            begin
+                A <= {1'b1, d_in};
+                TX <= 1'b0;
+                cnt_i <= 0;
+                cnt_t <= 0; 
+            end
+            else 
+            begin
+                if (inc_t)
+                begin
+                    cnt_t <= cnt_t + 1;
+                end
+                else if (inc_i && rst_t)
+                begin
+                    cnt_i <= cnt_i + 1;
+                    cnt_t <= 0;
+                    TX <= A[0];
+                    A <= {1'b1, A[n:1]}; //A >> 1;
+                end
+            end
+        end
+    end
+endmodule 

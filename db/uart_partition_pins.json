@@ -1,0 +1,37 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "recv_req",
+					"strict" : false
+				},
+				{
+					"name" : "send_req",
+					"strict" : false
+				},
+				{
+					"name" : "TX",
+					"strict" : false
+				},
+				{
+					"name" : "send_ack",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rst_n",
+					"strict" : false
+				},
+				{
+					"name" : "RX",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

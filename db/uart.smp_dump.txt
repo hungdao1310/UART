@@ -1,0 +1,6 @@
+
+State Machine - |uart|uart_rx:rx|control1:cu|state
+Name state.idle state.recv_bit state.special_bit 
+state.idle 0 0 0 
+state.special_bit 1 0 1 
+state.recv_bit 1 1 0 

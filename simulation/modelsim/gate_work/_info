@@ -1,0 +1,83 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/Quartus II/Project/Week_end/simulation/modelsim
+vhard_block
+Z1 !s110 1695982861
+!i10b 1
+!s100 MQ=jW@hN3U3lg;fbEOY6<2
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IKAon]mzUNLlThDL9]18=e0
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z4 w1695981944
+Z5 8uart.vo
+Z6 Fuart.vo
+!i122 0
+L0 3358 34
+Z7 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z8 !s108 1695982861.000000
+Z9 !s107 uart.vo|
+Z10 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+.|uart.vo|
+!i113 1
+Z11 o-vlog01compat -work work
+Z12 !s92 -vlog01compat -work work +incdir+.
+Z13 tCvgOpt 0
+vtestbench
+R1
+!i10b 1
+!s100 G;NeRzZX<@@NZ9]iVldT21
+R2
+IliUG_loPV[JCEFnoGe>931
+R3
+R0
+w1695976841
+8D:/Quartus II/Project/Week_end/uart_tb.v
+FD:/Quartus II/Project/Week_end/uart_tb.v
+!i122 1
+L0 2 49
+R7
+r1
+!s85 0
+31
+R8
+!s107 D:/Quartus II/Project/Week_end/uart_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Quartus II/Project/Week_end|D:/Quartus II/Project/Week_end/uart_tb.v|
+!i113 1
+R11
+!s92 -vlog01compat -work work {+incdir+D:/Quartus II/Project/Week_end}
+R13
+vuart
+R1
+!i10b 1
+!s100 T<IJi_VdHz08_QgeQbcL[1
+R2
+IQM9S@5CG9Uic>Gnm=8=zj1
+R3
+R0
+R4
+R5
+R6
+!i122 0
+L0 32 3325
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+R12
+R13

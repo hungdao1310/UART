@@ -1,0 +1,38 @@
+module uart #(
+    parameter n = 8,
+    parameter f_MHz = 50,
+    parameter f_baud = 9600
+) (
+    input clk, rst_n, RX,
+    output TX, recv_req, send_ack, clk_gen, send_req, state, recv_req1,
+	 output [n+1:0] reg_TX, reg_RX,
+	 output [2*n+3:0] buffer
+);
+    localparam ratio = 16;
+    localparam T_baud = f_MHz*1000000/f_baud;
+    wire [n-1:0] register, register1;
+	 //wire [2*n+3:0] buffer;
+	 
+    uart_rx #(n, f_MHz, f_baud)
+        rx(
+            .clk(clk), .rst_n(rst_n), .recv_req(recv_req), 
+            .d_out(register), .RX(RX), .clk_gen(clk_gen)
+        );
+    assign reg_RX = {1'b1, register, 1'b0};
+	 thin_bit 
+			tb(
+				.clk(clk), .in(recv_req), .out(recv_req1)
+			);
+		  
+    buffer #(n) 
+			fifo(
+				.clk(clk), .rst_n(rst_n), .recv_req(recv_req1), .send_ack(send_ack),
+				.B(reg_RX), .send_req(send_req), .d_out(register1), .buffer(buffer)
+			);
+			
+    uart_tx #(n, f_MHz, f_baud)
+        tx(
+            .clk(clk), .rst_n(rst_n), .send_req(send_req), .reg_TX(reg_TX),
+            .send_ack(send_ack), .TX(TX), .d_in(register1), .state(state)
+        );
+endmodule 

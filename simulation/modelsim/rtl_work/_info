@@ -1,0 +1,203 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/Quartus II/Project/Week_end/simulation/modelsim
+vcontrol
+Z1 !s110 1695992860
+!i10b 1
+!s100 48_kDMOCk?9kH:cIo3m]03
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+Iih>>K^gH3iYKNP@0@HaZ20
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z4 w1695983068
+Z5 8D:/Quartus II/Project/Week_end/uart_tx.v
+Z6 FD:/Quartus II/Project/Week_end/uart_tx.v
+!i122 0
+L0 28 62
+Z7 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z8 !s108 1695992860.000000
+Z9 !s107 D:/Quartus II/Project/Week_end/uart_tx.v|
+Z10 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Quartus II/Project/Week_end|D:/Quartus II/Project/Week_end/uart_tx.v|
+!i113 1
+Z11 o-vlog01compat -work work
+Z12 !s92 -vlog01compat -work work {+incdir+D:/Quartus II/Project/Week_end}
+Z13 tCvgOpt 0
+vcontrol1
+R1
+!i10b 1
+!s100 O15C3G@cWRoAbmAAR>SBU3
+R2
+I4c52iCU1gdF_I9OTeO0^T2
+R3
+R0
+Z14 w1695988117
+Z15 8D:/Quartus II/Project/Week_end/uart_rx.v
+Z16 FD:/Quartus II/Project/Week_end/uart_rx.v
+!i122 1
+L0 29 82
+R7
+r1
+!s85 0
+31
+R8
+Z17 !s107 D:/Quartus II/Project/Week_end/uart_rx.v|
+Z18 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Quartus II/Project/Week_end|D:/Quartus II/Project/Week_end/uart_rx.v|
+!i113 1
+R11
+R12
+R13
+vdatapath
+R1
+!i10b 1
+!s100 C`V;mMmo`2^m`>hPf8z741
+R2
+I_Ve4^F36io;aa@_kW:4Fe1
+R3
+R0
+R4
+R5
+R6
+!i122 0
+L0 91 51
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+R12
+R13
+vdatapath1
+R1
+!i10b 1
+!s100 QURhT5ZKM_emC`5_<EnLR1
+R2
+IU^VTi;0cDBXSWZkdLCm1>3
+R3
+R0
+R14
+R15
+R16
+!i122 1
+L0 112 70
+R7
+r1
+!s85 0
+31
+R8
+R17
+R18
+!i113 1
+R11
+R12
+R13
+vtestbench
+R1
+!i10b 1
+!s100 RGo_[;E9dH=EnX;;>ob4]0
+R2
+I9fKMB`Kmf6i5c?HJN>L@32
+R3
+R0
+w1695992783
+8D:/Quartus II/Project/Week_end/uart_tb.v
+FD:/Quartus II/Project/Week_end/uart_tb.v
+!i122 3
+L0 2 50
+R7
+r1
+!s85 0
+31
+R8
+!s107 D:/Quartus II/Project/Week_end/uart_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Quartus II/Project/Week_end|D:/Quartus II/Project/Week_end/uart_tb.v|
+!i113 1
+R11
+R12
+R13
+vuart
+R1
+!i10b 1
+!s100 RoT^C:zmQF@DUI2=R1k1>3
+R2
+IMY1SCzhhBBRafNE_[[>@k2
+R3
+R0
+w1695992787
+8D:/Quartus II/Project/Week_end/uart.v
+FD:/Quartus II/Project/Week_end/uart.v
+!i122 2
+L0 1 25
+R7
+r1
+!s85 0
+31
+R8
+!s107 D:/Quartus II/Project/Week_end/uart.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Quartus II/Project/Week_end|D:/Quartus II/Project/Week_end/uart.v|
+!i113 1
+R11
+R12
+R13
+vuart_rx
+R1
+!i10b 1
+!s100 QSnQ9mUe=Q3?GM1@O3B7?3
+R2
+IC_FLiR[VHKH:eQ@?g_QJU1
+R3
+R0
+R14
+R15
+R16
+!i122 1
+L0 1 27
+R7
+r1
+!s85 0
+31
+R8
+R17
+R18
+!i113 1
+R11
+R12
+R13
+vuart_tx
+R1
+!i10b 1
+!s100 K>LIHjg54SK8<CHIf6hB=2
+R2
+IQ@90FE824AcE>9[<MSVH_0
+R3
+R0
+R4
+R5
+R6
+!i122 0
+L0 1 26
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+R12
+R13

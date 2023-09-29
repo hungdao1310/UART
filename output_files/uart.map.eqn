@@ -1,0 +1,747 @@
+-- Copyright (C) 1991-2013 Altera Corporation
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, Altera MegaCore Function License 
+-- Agreement, or other applicable license agreement, including, 
+-- without limitation, that your use is for the sole purpose of 
+-- programming logic devices manufactured by Altera and sold by 
+-- Altera or its authorized distributors.  Please refer to the 
+-- applicable agreement for further details.
+--G1_cnt_t[8] is uart_tx:tx|datapath:dp|cnt_t[8]
+--register power-up is low
+
+G1_cnt_t[8] = DFFEAS(G1L65, clk,  ,  , G1L42,  ,  , G1L67,  );
+
+
+--G1_cnt_t[1] is uart_tx:tx|datapath:dp|cnt_t[1]
+--register power-up is low
+
+G1_cnt_t[1] = DFFEAS(G1L44, clk,  ,  , G1L42,  ,  , G1L67,  );
+
+
+--G1_cnt_t[2] is uart_tx:tx|datapath:dp|cnt_t[2]
+--register power-up is low
+
+G1_cnt_t[2] = DFFEAS(G1L47, clk,  ,  , G1L42,  ,  , G1L67,  );
+
+
+--G1_cnt_t[3] is uart_tx:tx|datapath:dp|cnt_t[3]
+--register power-up is low
+
+G1_cnt_t[3] = DFFEAS(G1L50, clk,  ,  , G1L42,  ,  , G1L67,  );
+
+
+--G1_cnt_t[0] is uart_tx:tx|datapath:dp|cnt_t[0]
+--register power-up is low
+
+G1_cnt_t[0] = DFFEAS(G1L40, clk,  ,  , G1L42,  ,  , G1L67,  );
+
+
+--G1_cnt_t[6] is uart_tx:tx|datapath:dp|cnt_t[6]
+--register power-up is low
+
+G1_cnt_t[6] = DFFEAS(G1L59, clk,  ,  , G1L42,  ,  , G1L67,  );
+
+
+--G1_cnt_t[4] is uart_tx:tx|datapath:dp|cnt_t[4]
+--register power-up is low
+
+G1_cnt_t[4] = DFFEAS(G1L53, clk,  ,  , G1L42,  ,  , G1L67,  );
+
+
+--G1_cnt_t[5] is uart_tx:tx|datapath:dp|cnt_t[5]
+--register power-up is low
+
+G1_cnt_t[5] = DFFEAS(G1L56, clk,  ,  , G1L42,  ,  , G1L67,  );
+
+
+--G1_cnt_t[7] is uart_tx:tx|datapath:dp|cnt_t[7]
+--register power-up is low
+
+G1_cnt_t[7] = DFFEAS(G1L62, clk,  ,  , G1L42,  ,  , G1L67,  );
+
+
+--E1_cnt_t[4] is uart_rx:rx|datapath1:dp|cnt_t[4]
+--register power-up is low
+
+E1_cnt_t[4] = DFFEAS(E1L45, clk,  ,  , E1L34,  ,  , E1L59,  );
+
+
+--E1_cnt_t[7] is uart_rx:rx|datapath1:dp|cnt_t[7]
+--register power-up is low
+
+E1_cnt_t[7] = DFFEAS(E1L54, clk,  ,  , E1L34,  ,  , E1L59,  );
+
+
+--E1_cnt_t[1] is uart_rx:rx|datapath1:dp|cnt_t[1]
+--register power-up is low
+
+E1_cnt_t[1] = DFFEAS(E1L36, clk,  ,  , E1L34,  ,  , E1L59,  );
+
+
+--E1_cnt_t[2] is uart_rx:rx|datapath1:dp|cnt_t[2]
+--register power-up is low
+
+E1_cnt_t[2] = DFFEAS(E1L39, clk,  ,  , E1L34,  ,  , E1L59,  );
+
+
+--E1_cnt_t[3] is uart_rx:rx|datapath1:dp|cnt_t[3]
+--register power-up is low
+
+E1_cnt_t[3] = DFFEAS(E1L42, clk,  ,  , E1L34,  ,  , E1L59,  );
+
+
+--E1_cnt_t[6] is uart_rx:rx|datapath1:dp|cnt_t[6]
+--register power-up is low
+
+E1_cnt_t[6] = DFFEAS(E1L51, clk,  ,  , E1L34,  ,  , E1L59,  );
+
+
+--E1_cnt_t[0] is uart_rx:rx|datapath1:dp|cnt_t[0]
+--register power-up is low
+
+E1_cnt_t[0] = DFFEAS(E1L31, clk,  ,  , E1L34,  ,  , E1L59,  );
+
+
+--E1_cnt_t[5] is uart_rx:rx|datapath1:dp|cnt_t[5]
+--register power-up is low
+
+E1_cnt_t[5] = DFFEAS(E1L48, clk,  ,  , E1L34,  ,  , E1L59,  );
+
+
+--E1_cnt_t[8] is uart_rx:rx|datapath1:dp|cnt_t[8]
+--register power-up is low
+
+E1_cnt_t[8] = DFFEAS(E1L57, clk,  ,  , E1L34,  ,  , E1L59,  );
+
+
+--G1L40 is uart_tx:tx|datapath:dp|cnt_t[0]~9
+G1L40 = G1_cnt_t[0] $ (VCC);
+
+--G1L41 is uart_tx:tx|datapath:dp|cnt_t[0]~10
+G1L41 = CARRY(G1_cnt_t[0]);
+
+
+--G1L44 is uart_tx:tx|datapath:dp|cnt_t[1]~11
+G1L44 = (G1_cnt_t[1] & (!G1L41)) # (!G1_cnt_t[1] & ((G1L41) # (GND)));
+
+--G1L45 is uart_tx:tx|datapath:dp|cnt_t[1]~12
+G1L45 = CARRY((!G1L41) # (!G1_cnt_t[1]));
+
+
+--G1L47 is uart_tx:tx|datapath:dp|cnt_t[2]~13
+G1L47 = (G1_cnt_t[2] & (G1L45 $ (GND))) # (!G1_cnt_t[2] & (!G1L45 & VCC));
+
+--G1L48 is uart_tx:tx|datapath:dp|cnt_t[2]~14
+G1L48 = CARRY((G1_cnt_t[2] & !G1L45));
+
+
+--G1L50 is uart_tx:tx|datapath:dp|cnt_t[3]~15
+G1L50 = (G1_cnt_t[3] & (!G1L48)) # (!G1_cnt_t[3] & ((G1L48) # (GND)));
+
+--G1L51 is uart_tx:tx|datapath:dp|cnt_t[3]~16
+G1L51 = CARRY((!G1L48) # (!G1_cnt_t[3]));
+
+
+--G1L53 is uart_tx:tx|datapath:dp|cnt_t[4]~17
+G1L53 = (G1_cnt_t[4] & (G1L51 $ (GND))) # (!G1_cnt_t[4] & (!G1L51 & VCC));
+
+--G1L54 is uart_tx:tx|datapath:dp|cnt_t[4]~18
+G1L54 = CARRY((G1_cnt_t[4] & !G1L51));
+
+
+--G1L56 is uart_tx:tx|datapath:dp|cnt_t[5]~19
+G1L56 = (G1_cnt_t[5] & (!G1L54)) # (!G1_cnt_t[5] & ((G1L54) # (GND)));
+
+--G1L57 is uart_tx:tx|datapath:dp|cnt_t[5]~20
+G1L57 = CARRY((!G1L54) # (!G1_cnt_t[5]));
+
+
+--G1L59 is uart_tx:tx|datapath:dp|cnt_t[6]~21
+G1L59 = (G1_cnt_t[6] & (G1L57 $ (GND))) # (!G1_cnt_t[6] & (!G1L57 & VCC));
+
+--G1L60 is uart_tx:tx|datapath:dp|cnt_t[6]~22
+G1L60 = CARRY((G1_cnt_t[6] & !G1L57));
+
+
+--G1L62 is uart_tx:tx|datapath:dp|cnt_t[7]~23
+G1L62 = (G1_cnt_t[7] & (!G1L60)) # (!G1_cnt_t[7] & ((G1L60) # (GND)));
+
+--G1L63 is uart_tx:tx|datapath:dp|cnt_t[7]~24
+G1L63 = CARRY((!G1L60) # (!G1_cnt_t[7]));
+
+
+--G1L65 is uart_tx:tx|datapath:dp|cnt_t[8]~25
+G1L65 = G1_cnt_t[8] $ (!G1L63);
+
+
+--E1L31 is uart_rx:rx|datapath1:dp|cnt_t[0]~9
+E1L31 = E1_cnt_t[0] $ (VCC);
+
+--E1L32 is uart_rx:rx|datapath1:dp|cnt_t[0]~10
+E1L32 = CARRY(E1_cnt_t[0]);
+
+
+--E1L36 is uart_rx:rx|datapath1:dp|cnt_t[1]~11
+E1L36 = (E1_cnt_t[1] & (!E1L32)) # (!E1_cnt_t[1] & ((E1L32) # (GND)));
+
+--E1L37 is uart_rx:rx|datapath1:dp|cnt_t[1]~12
+E1L37 = CARRY((!E1L32) # (!E1_cnt_t[1]));
+
+
+--E1L39 is uart_rx:rx|datapath1:dp|cnt_t[2]~13
+E1L39 = (E1_cnt_t[2] & (E1L37 $ (GND))) # (!E1_cnt_t[2] & (!E1L37 & VCC));
+
+--E1L40 is uart_rx:rx|datapath1:dp|cnt_t[2]~14
+E1L40 = CARRY((E1_cnt_t[2] & !E1L37));
+
+
+--E1L42 is uart_rx:rx|datapath1:dp|cnt_t[3]~15
+E1L42 = (E1_cnt_t[3] & (!E1L40)) # (!E1_cnt_t[3] & ((E1L40) # (GND)));
+
+--E1L43 is uart_rx:rx|datapath1:dp|cnt_t[3]~16
+E1L43 = CARRY((!E1L40) # (!E1_cnt_t[3]));
+
+
+--E1L45 is uart_rx:rx|datapath1:dp|cnt_t[4]~17
+E1L45 = (E1_cnt_t[4] & (E1L43 $ (GND))) # (!E1_cnt_t[4] & (!E1L43 & VCC));
+
+--E1L46 is uart_rx:rx|datapath1:dp|cnt_t[4]~18
+E1L46 = CARRY((E1_cnt_t[4] & !E1L43));
+
+
+--E1L48 is uart_rx:rx|datapath1:dp|cnt_t[5]~23
+E1L48 = (E1_cnt_t[5] & (!E1L46)) # (!E1_cnt_t[5] & ((E1L46) # (GND)));
+
+--E1L49 is uart_rx:rx|datapath1:dp|cnt_t[5]~24
+E1L49 = CARRY((!E1L46) # (!E1_cnt_t[5]));
+
+
+--E1L51 is uart_rx:rx|datapath1:dp|cnt_t[6]~25
+E1L51 = (E1_cnt_t[6] & (E1L49 $ (GND))) # (!E1_cnt_t[6] & (!E1L49 & VCC));
+
+--E1L52 is uart_rx:rx|datapath1:dp|cnt_t[6]~26
+E1L52 = CARRY((E1_cnt_t[6] & !E1L49));
+
+
+--E1L54 is uart_rx:rx|datapath1:dp|cnt_t[7]~27
+E1L54 = (E1_cnt_t[7] & (!E1L52)) # (!E1_cnt_t[7] & ((E1L52) # (GND)));
+
+--E1L55 is uart_rx:rx|datapath1:dp|cnt_t[7]~28
+E1L55 = CARRY((!E1L52) # (!E1_cnt_t[7]));
+
+
+--E1L57 is uart_rx:rx|datapath1:dp|cnt_t[8]~29
+E1L57 = E1_cnt_t[8] $ (!E1L55);
+
+
+--recv_req is recv_req
+recv_req = OUTPUT(E1_recv_req);
+
+
+--send_req is send_req
+send_req = OUTPUT(E1_recv_req);
+
+
+--TX is TX
+TX = OUTPUT(G1_TX);
+
+
+--send_ack is send_ack
+send_ack = OUTPUT(F1L5);
+
+
+--E1_recv_req is uart_rx:rx|datapath1:dp|recv_req
+--register power-up is low
+
+E1_recv_req = DFFEAS(D1L6, clk,  ,  , rst_n,  ,  ,  ,  );
+
+
+--G1_TX is uart_tx:tx|datapath:dp|TX
+--register power-up is low
+
+G1_TX = DFFEAS(G1L26, clk,  ,  , G1L27,  ,  ,  ,  );
+
+
+--F1_state is uart_tx:tx|control:cu|state
+--register power-up is low
+
+F1_state = DFFEAS(F1L4, clk, rst_n,  ,  ,  ,  ,  ,  );
+
+
+--G1_cnt_i[3] is uart_tx:tx|datapath:dp|cnt_i[3]
+--register power-up is low
+
+G1_cnt_i[3] = DFFEAS(G1L34, clk,  ,  , G1L27,  ,  ,  ,  );
+
+
+--G1_cnt_i[0] is uart_tx:tx|datapath:dp|cnt_i[0]
+--register power-up is low
+
+G1_cnt_i[0] = DFFEAS(G1L35, clk,  ,  , G1L27,  ,  ,  ,  );
+
+
+--G1_cnt_i[2] is uart_tx:tx|datapath:dp|cnt_i[2]
+--register power-up is low
+
+G1_cnt_i[2] = DFFEAS(G1L36, clk,  ,  , G1L27,  ,  ,  ,  );
+
+
+--G1_cnt_i[1] is uart_tx:tx|datapath:dp|cnt_i[1]
+--register power-up is low
+
+G1_cnt_i[1] = DFFEAS(G1L37, clk,  ,  , G1L27,  ,  ,  ,  );
+
+
+--G1L22 is uart_tx:tx|datapath:dp|Equal0~0
+G1L22 = (G1_cnt_i[3] & (G1_cnt_i[0] & (!G1_cnt_i[2] & !G1_cnt_i[1])));
+
+
+--G1L23 is uart_tx:tx|datapath:dp|Equal1~0
+G1L23 = (G1_cnt_t[1]) # ((G1_cnt_t[2]) # ((G1_cnt_t[3]) # (!G1_cnt_t[0])));
+
+
+--G1L24 is uart_tx:tx|datapath:dp|Equal1~1
+G1L24 = (G1_cnt_t[6]) # (((!G1_cnt_t[7]) # (!G1_cnt_t[5])) # (!G1_cnt_t[4]));
+
+
+--F1L2 is uart_tx:tx|control:cu|load_bit~0
+F1L2 = (G1L22 & (G1_cnt_t[8] & (!G1L23 & !G1L24)));
+
+
+--F1L5 is uart_tx:tx|control:cu|send_ack~0
+F1L5 = (F1_state & F1L2);
+
+
+--D1_state.special_bit is uart_rx:rx|control1:cu|state.special_bit
+--register power-up is low
+
+D1_state.special_bit = DFFEAS(D1L10, clk, rst_n,  ,  ,  ,  ,  ,  );
+
+
+--E1L14 is uart_rx:rx|datapath1:dp|Equal2~0
+E1L14 = (E1_cnt_t[4] & (E1_cnt_t[7] & (!E1_cnt_t[1] & !E1_cnt_t[2])));
+
+
+--D1L1 is uart_rx:rx|control1:cu|inc_i~0
+D1L1 = (E1_cnt_t[3] & (E1_cnt_t[6] & (!E1_cnt_t[0] & !E1_cnt_t[5])));
+
+
+--D1L2 is uart_rx:rx|control1:cu|inc_i~1
+D1L2 = (E1L14 & (D1L1 & !E1_cnt_t[8]));
+
+
+--E1_cnt_i[3] is uart_rx:rx|datapath1:dp|cnt_i[3]
+--register power-up is low
+
+E1_cnt_i[3] = DFFEAS(E1L24, clk,  ,  , E1L23,  ,  ,  ,  );
+
+
+--E1_cnt_i[1] is uart_rx:rx|datapath1:dp|cnt_i[1]
+--register power-up is low
+
+E1_cnt_i[1] = DFFEAS(E1L26, clk,  ,  , E1L23,  ,  ,  ,  );
+
+
+--E1_cnt_i[2] is uart_rx:rx|datapath1:dp|cnt_i[2]
+--register power-up is low
+
+E1_cnt_i[2] = DFFEAS(E1L27, clk,  ,  , E1L23,  ,  ,  ,  );
+
+
+--E1_cnt_i[0] is uart_rx:rx|datapath1:dp|cnt_i[0]
+--register power-up is low
+
+E1_cnt_i[0] = DFFEAS(E1L28, clk,  ,  , E1L23,  ,  ,  ,  );
+
+
+--E1L13 is uart_rx:rx|datapath1:dp|Equal1~0
+E1L13 = (E1_cnt_i[3] & (E1_cnt_i[1] & (!E1_cnt_i[2] & !E1_cnt_i[0])));
+
+
+--D1L6 is uart_rx:rx|control1:cu|load_bit~0
+D1L6 = (D1_state.special_bit & (D1L2 & E1L13));
+
+
+--clk is clk
+clk = INPUT();
+
+
+--rst_n is rst_n
+rst_n = INPUT();
+
+
+--G1_A[0] is uart_tx:tx|datapath:dp|A[0]
+--register power-up is low
+
+G1_A[0] = DFFEAS(G1L14, clk, rst_n,  , G1L11,  ,  ,  ,  );
+
+
+--G1L26 is uart_tx:tx|datapath:dp|TX~0
+G1L26 = (G1_A[0] & (((F1_state & !F1L2)) # (!E1_recv_req)));
+
+
+--F1L1 is uart_tx:tx|control:cu|always0~0
+F1L1 = (G1_cnt_t[8] & (!G1L22 & (!G1L23 & !G1L24)));
+
+
+--G1L11 is uart_tx:tx|datapath:dp|A[8]~0
+G1L11 = (F1_state & ((F1L1) # ((F1L2 & E1_recv_req)))) # (!F1_state & (((E1_recv_req))));
+
+
+--G1L27 is uart_tx:tx|datapath:dp|TX~1
+G1L27 = (rst_n & G1L11);
+
+
+--F1L4 is uart_tx:tx|control:cu|next_state~0
+F1L4 = (E1_recv_req) # ((F1_state & !F1L2));
+
+
+--G1L28 is uart_tx:tx|datapath:dp|TX~2
+G1L28 = ((F1_state & !F1L2)) # (!E1_recv_req);
+
+
+--G1L13 is uart_tx:tx|datapath:dp|Add1~0
+G1L13 = (G1_cnt_i[1] & G1_cnt_i[0]);
+
+
+--G1L34 is uart_tx:tx|datapath:dp|cnt_i~0
+G1L34 = (G1L28 & (G1_cnt_i[3] $ (((G1_cnt_i[2] & G1L13)))));
+
+
+--G1L35 is uart_tx:tx|datapath:dp|cnt_i~1
+G1L35 = (!G1_cnt_i[0] & (((!F1L2 & F1_state)) # (!E1_recv_req)));
+
+
+--G1L36 is uart_tx:tx|datapath:dp|cnt_i~2
+G1L36 = (F1_state & ((G1_cnt_i[2] $ (G1L13)))) # (!F1_state & (!E1_recv_req & (G1_cnt_i[2] $ (G1L13))));
+
+
+--G1L37 is uart_tx:tx|datapath:dp|cnt_i~3
+G1L37 = (G1L28 & (G1_cnt_i[1] $ (G1_cnt_i[0])));
+
+
+--G1L67 is uart_tx:tx|datapath:dp|cnt_t~27
+G1L67 = ((!G1L23 & (!G1L24 & G1_cnt_t[8]))) # (!F1_state);
+
+
+--G1L42 is uart_tx:tx|datapath:dp|cnt_t[0]~28
+G1L42 = (rst_n & ((E1_recv_req) # ((F1_state & !F1L2))));
+
+
+--RX is RX
+RX = INPUT();
+
+
+--D1_state.idle is uart_rx:rx|control1:cu|state.idle
+--register power-up is low
+
+D1_state.idle = DFFEAS(D1L16, clk, rst_n,  ,  ,  ,  ,  ,  );
+
+
+--D1L7 is uart_rx:rx|control1:cu|next_state.idle~0
+D1L7 = (!D1_state.special_bit & ((D1_state.idle & ((!E1L13))) # (!D1_state.idle & (RX))));
+
+
+--D1L3 is uart_rx:rx|control1:cu|inc_i~2
+D1L3 = (!E1_cnt_i[2] & (!E1_cnt_i[0] & (!E1_cnt_i[3] & !E1_cnt_i[1])));
+
+
+--D1L8 is uart_rx:rx|control1:cu|next_state.idle~1
+D1L8 = ((E1L13 & ((!RX))) # (!E1L13 & (!D1L3))) # (!D1L2);
+
+
+--D1L10 is uart_rx:rx|control1:cu|next_state.special_bit~0
+D1L10 = (D1L7 & ((D1_state.special_bit))) # (!D1L7 & ((D1L8) # (!D1_state.special_bit)));
+
+
+--E1L15 is uart_rx:rx|datapath1:dp|Equal2~1
+E1L15 = (E1_cnt_t[3]) # ((E1_cnt_t[6]) # ((!E1_cnt_t[5]) # (!E1_cnt_t[0])));
+
+
+--E1L16 is uart_rx:rx|datapath1:dp|Equal2~2
+E1L16 = (E1L15) # ((!E1_cnt_t[8]) # (!E1L14));
+
+
+--D1L5 is uart_rx:rx|control1:cu|inc_t~0
+D1L5 = (D1_state.special_bit & ((!D1L2))) # (!D1_state.special_bit & (E1L16));
+
+
+--E1L59 is uart_rx:rx|datapath1:dp|cnt_t~19
+E1L59 = ((D1L6) # (!D1L5)) # (!D1_state.idle);
+
+
+--E1L33 is uart_rx:rx|datapath1:dp|cnt_t[0]~20
+E1L33 = (rst_n & (((D1_state.idle & !D1L6)) # (!RX)));
+
+
+--D1L11 is uart_rx:rx|control1:cu|rst_t~0
+D1L11 = (D1_state.special_bit & ((D1L3) # ((E1L13 & !RX)))) # (!D1_state.special_bit & (((E1L13 & !RX))));
+
+
+--D1L12 is uart_rx:rx|control1:cu|rst_t~1
+D1L12 = (E1L13) # ((E1L14 & (E1_cnt_t[8] & !E1L15)));
+
+
+--D1L13 is uart_rx:rx|control1:cu|rst_t~2
+D1L13 = (D1L2 & ((D1L11) # ((D1L12 & !D1_state.special_bit)))) # (!D1L2 & (((D1L12 & !D1_state.special_bit))));
+
+
+--D1L14 is uart_rx:rx|control1:cu|rst_t~3
+D1L14 = (D1_state.idle & (D1L13)) # (!D1_state.idle & ((!RX)));
+
+
+--E1L60 is uart_rx:rx|datapath1:dp|cnt_t~21
+E1L60 = (D1_state.idle & (((!E1L13) # (!D1L2)) # (!D1_state.special_bit)));
+
+
+--E1L34 is uart_rx:rx|datapath1:dp|cnt_t[0]~22
+E1L34 = (E1L33 & ((D1L5) # ((D1L14) # (!E1L60))));
+
+
+--D1L4 is uart_rx:rx|control1:cu|inc_i~3
+D1L4 = (D1_state.special_bit & (D1L2 & (D1L3))) # (!D1_state.special_bit & (((!E1L16))));
+
+
+--E1L1 is uart_rx:rx|datapath1:dp|Add1~0
+E1L1 = E1_cnt_i[3] $ (((E1_cnt_i[2] & (E1_cnt_i[0] & E1_cnt_i[1]))));
+
+
+--E1L24 is uart_rx:rx|datapath1:dp|cnt_i~0
+E1L24 = (E1L60 & (D1L13 & (D1L4 & E1L1)));
+
+
+--E1L4 is uart_rx:rx|datapath1:dp|B[1]~0
+E1L4 = (E1L60 & (D1L13 & (D1L4 & !D1L5)));
+
+
+--E1L22 is uart_rx:rx|datapath1:dp|cnt_i[3]~1
+E1L22 = (!RX & ((D1L6) # (!D1_state.idle)));
+
+
+--E1L23 is uart_rx:rx|datapath1:dp|cnt_i[3]~2
+E1L23 = (rst_n & ((E1L4) # ((D1L14 & E1L22))));
+
+
+--E1L25 is uart_rx:rx|datapath1:dp|cnt_i~3
+E1L25 = (D1_state.idle & (D1L13 & (D1L4 & !D1L6)));
+
+
+--E1L26 is uart_rx:rx|datapath1:dp|cnt_i~4
+E1L26 = (E1L25 & (E1_cnt_i[0] $ (E1_cnt_i[1])));
+
+
+--E1L27 is uart_rx:rx|datapath1:dp|cnt_i~5
+E1L27 = (E1L25 & (E1_cnt_i[2] $ (((E1_cnt_i[0] & E1_cnt_i[1])))));
+
+
+--E1L28 is uart_rx:rx|datapath1:dp|cnt_i~6
+E1L28 = (!E1_cnt_i[0] & (E1L60 & (D1L13 & D1L4)));
+
+
+--E1_d_out[0] is uart_rx:rx|datapath1:dp|d_out[0]
+--register power-up is low
+
+E1_d_out[0] = DFFEAS(E1_B[1], clk,  ,  , E1L63,  ,  ,  ,  );
+
+
+--G1_A[1] is uart_tx:tx|datapath:dp|A[1]
+--register power-up is low
+
+G1_A[1] = DFFEAS(G1L15, clk, rst_n,  , G1L11,  ,  ,  ,  );
+
+
+--F1L3 is uart_tx:tx|control:cu|load_bit~1
+F1L3 = (E1_recv_req & ((F1L2) # (!F1_state)));
+
+
+--G1L14 is uart_tx:tx|datapath:dp|A~1
+G1L14 = (F1L3 & (E1_d_out[0])) # (!F1L3 & ((G1_A[1])));
+
+
+--D1L9 is uart_rx:rx|control1:cu|next_state.idle~2
+D1L9 = (D1L7) # ((D1_state.special_bit & D1L8));
+
+
+--D1L16 is uart_rx:rx|control1:cu|state.idle~0
+D1L16 = (D1L9 & (D1_state.idle)) # (!D1L9 & (((!RX) # (!D1L6))));
+
+
+--E1_B[1] is uart_rx:rx|datapath1:dp|B[1]
+--register power-up is low
+
+E1_B[1] = DFFEAS(E1_B[2], clk, rst_n,  , E1L4,  ,  ,  ,  );
+
+
+--E1L63 is uart_rx:rx|datapath1:dp|d_out[0]~0
+E1L63 = (D1_state.special_bit & (D1L2 & (E1L13 & rst_n)));
+
+
+--E1_d_out[1] is uart_rx:rx|datapath1:dp|d_out[1]
+--register power-up is low
+
+E1_d_out[1] = DFFEAS(E1_B[2], clk,  ,  , E1L63,  ,  ,  ,  );
+
+
+--G1_A[2] is uart_tx:tx|datapath:dp|A[2]
+--register power-up is low
+
+G1_A[2] = DFFEAS(G1L16, clk, rst_n,  , G1L11,  ,  ,  ,  );
+
+
+--G1L15 is uart_tx:tx|datapath:dp|A~2
+G1L15 = (F1L3 & (E1_d_out[1])) # (!F1L3 & ((G1_A[2])));
+
+
+--E1_B[2] is uart_rx:rx|datapath1:dp|B[2]
+--register power-up is low
+
+E1_B[2] = DFFEAS(E1_B[3], clk, rst_n,  , E1L4,  ,  ,  ,  );
+
+
+--E1_d_out[2] is uart_rx:rx|datapath1:dp|d_out[2]
+--register power-up is low
+
+E1_d_out[2] = DFFEAS(E1_B[3], clk,  ,  , E1L63,  ,  ,  ,  );
+
+
+--G1_A[3] is uart_tx:tx|datapath:dp|A[3]
+--register power-up is low
+
+G1_A[3] = DFFEAS(G1L17, clk, rst_n,  , G1L11,  ,  ,  ,  );
+
+
+--G1L16 is uart_tx:tx|datapath:dp|A~3
+G1L16 = (F1L3 & (E1_d_out[2])) # (!F1L3 & ((G1_A[3])));
+
+
+--E1_B[3] is uart_rx:rx|datapath1:dp|B[3]
+--register power-up is low
+
+E1_B[3] = DFFEAS(E1_B[4], clk, rst_n,  , E1L4,  ,  ,  ,  );
+
+
+--E1_d_out[3] is uart_rx:rx|datapath1:dp|d_out[3]
+--register power-up is low
+
+E1_d_out[3] = DFFEAS(E1_B[4], clk,  ,  , E1L63,  ,  ,  ,  );
+
+
+--G1_A[4] is uart_tx:tx|datapath:dp|A[4]
+--register power-up is low
+
+G1_A[4] = DFFEAS(G1L18, clk, rst_n,  , G1L11,  ,  ,  ,  );
+
+
+--G1L17 is uart_tx:tx|datapath:dp|A~4
+G1L17 = (F1L3 & (E1_d_out[3])) # (!F1L3 & ((G1_A[4])));
+
+
+--E1_B[4] is uart_rx:rx|datapath1:dp|B[4]
+--register power-up is low
+
+E1_B[4] = DFFEAS(E1_B[5], clk, rst_n,  , E1L4,  ,  ,  ,  );
+
+
+--E1_d_out[4] is uart_rx:rx|datapath1:dp|d_out[4]
+--register power-up is low
+
+E1_d_out[4] = DFFEAS(E1_B[5], clk,  ,  , E1L63,  ,  ,  ,  );
+
+
+--G1_A[5] is uart_tx:tx|datapath:dp|A[5]
+--register power-up is low
+
+G1_A[5] = DFFEAS(G1L19, clk, rst_n,  , G1L11,  ,  ,  ,  );
+
+
+--G1L18 is uart_tx:tx|datapath:dp|A~5
+G1L18 = (F1L3 & (E1_d_out[4])) # (!F1L3 & ((G1_A[5])));
+
+
+--E1_B[5] is uart_rx:rx|datapath1:dp|B[5]
+--register power-up is low
+
+E1_B[5] = DFFEAS(E1_B[6], clk, rst_n,  , E1L4,  ,  ,  ,  );
+
+
+--E1_d_out[5] is uart_rx:rx|datapath1:dp|d_out[5]
+--register power-up is low
+
+E1_d_out[5] = DFFEAS(E1_B[6], clk,  ,  , E1L63,  ,  ,  ,  );
+
+
+--G1_A[6] is uart_tx:tx|datapath:dp|A[6]
+--register power-up is low
+
+G1_A[6] = DFFEAS(G1L20, clk, rst_n,  , G1L11,  ,  ,  ,  );
+
+
+--G1L19 is uart_tx:tx|datapath:dp|A~6
+G1L19 = (F1L3 & (E1_d_out[5])) # (!F1L3 & ((G1_A[6])));
+
+
+--E1_B[6] is uart_rx:rx|datapath1:dp|B[6]
+--register power-up is low
+
+E1_B[6] = DFFEAS(E1_B[7], clk, rst_n,  , E1L4,  ,  ,  ,  );
+
+
+--E1_d_out[6] is uart_rx:rx|datapath1:dp|d_out[6]
+--register power-up is low
+
+E1_d_out[6] = DFFEAS(E1_B[7], clk,  ,  , E1L63,  ,  ,  ,  );
+
+
+--G1_A[7] is uart_tx:tx|datapath:dp|A[7]
+--register power-up is low
+
+G1_A[7] = DFFEAS(G1L21, clk, rst_n,  , G1L11,  ,  ,  ,  );
+
+
+--G1L20 is uart_tx:tx|datapath:dp|A~7
+G1L20 = (F1L3 & (E1_d_out[6])) # (!F1L3 & ((G1_A[7])));
+
+
+--E1_B[7] is uart_rx:rx|datapath1:dp|B[7]
+--register power-up is low
+
+E1_B[7] = DFFEAS(E1_B[8], clk, rst_n,  , E1L4,  ,  ,  ,  );
+
+
+--E1_d_out[7] is uart_rx:rx|datapath1:dp|d_out[7]
+--register power-up is low
+
+E1_d_out[7] = DFFEAS(E1_B[8], clk,  ,  , E1L63,  ,  ,  ,  );
+
+
+--G1_A[8] is uart_tx:tx|datapath:dp|A[8]
+--register power-up is low
+
+G1_A[8] = DFFEAS(G1L12, clk, rst_n,  ,  ,  ,  ,  ,  );
+
+
+--G1L21 is uart_tx:tx|datapath:dp|A~8
+G1L21 = (F1L3 & (E1_d_out[7])) # (!F1L3 & ((G1_A[8])));
+
+
+--E1_B[8] is uart_rx:rx|datapath1:dp|B[8]
+--register power-up is low
+
+E1_B[8] = DFFEAS(E1_B[9], clk, rst_n,  , E1L4,  ,  ,  ,  );
+
+
+--G1L12 is uart_tx:tx|datapath:dp|A[8]~9
+G1L12 = (G1_A[8]) # (G1L11);
+
+
+--E1_B[9] is uart_rx:rx|datapath1:dp|B[9]
+--register power-up is low
+
+E1_B[9] = DFFEAS(RX, clk, rst_n,  , E1L4,  ,  ,  ,  );
+
+
